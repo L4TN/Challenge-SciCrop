@@ -18,6 +18,9 @@ Make sure you have Go 1.18 or higher installed.
 
 https://golang.org/doc/install
 
+## Install CORS Unblock for your browser
+Edge: https://microsoftedge.microsoft.com/addons/search/cors
+
 ## Environment Config
 
 Set-up the standard Go environment variables according to latest guidance (see https://golang.org/doc/install#install).
