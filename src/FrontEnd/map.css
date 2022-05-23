@@ -1,0 +1,28 @@
+body {
+  background-color: #3498DB;
+  background-image: linear-gradient(62deg, #98a3ac 0%, #3498DB 100%);
+}
+
+.map_button{
+height: 50px;
+}
+
+.button2 {
+  height: 40px;
+  width: 60px;
+  place-self: right;
+  border-radius: 20px;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: #3498db;
+  background-image: linear-gradient(62deg, #98a3ac 0%, #3498db 100%); 
+}
+
+#map {
+  height: 900px;
+}

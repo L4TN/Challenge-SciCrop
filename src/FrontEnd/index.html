@@ -1,51 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>GeoApp</title>
+<!-- Designined by CodingLab - Update by Fantacy Design -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>SciCrop Challenge</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="images/csicrop.jpg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <span class="title">
+        Register New Geolocalization
+        <button
+          type="button"
+          class="button2"
+          onclick="location.href='map.html'"
+        >
+          Map
+        </button>
+      </span>
+      <div class="content">
+        <form action="#">
+          <div class="user-details">
+            <div class="input-box">
+              <span class="details">ID</span>
+              <input type="text" placeholder="Enter ID" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Name</span>
+              <input type="text" id="name" placeholder="Enter name of local" required />
+            </div>
+            <div class="input-box">
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
-    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
-    crossorigin=""/>
-
-    <script 
-    src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
-    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
-    crossorigin="">
-    </script>
-
-    <style>#map { height: 180px; }</style>
-</head>
-
-<body>
-    <div id="map"></div>
-
-    <script> 
-    var map = L.map('map').setView([-23.52955457311456, -46.63256111148757], 13);
-    
-    L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: 'pk.eyJ1IjoibDR0biIsImEiOiJjbDNob3pzZGEwY3dlM2NrNGlqeXpwc2wzIn0.3P8jcOmpX06lJ458jz58XA'
-}).addTo(map);
-
-    var marker = L.marker([-23.52955457311456, -46.63256111148757]).addTo(map);
-    </script>
-
-
-    <input type="text" id="url" style="width:300px;" value="http://localhost:8080/locations">
-    <button onclick="postLocation()();">Criando requisição</button>
-    <hr/>
-    <div id="resposta"></div>
-
-    <input type="text" id="url" style="width:300px;" value="http://localhost:8080/locations">
-    <button onclick="getLocation();">Pegando requisição</button>
-    <hr/>
-    <div id="resposta"></div>
-
-    <script src="index.js"></script>
-    
-</body>
+              <span class="details">Lat</span>
+              <input type="number" id="Lat" placeholder="Enter latitude" required />
+            </div>
+            <div class="input-box">
+              <span class="details">Long</span>
+              <input type="number" id="Long" placeholder="Enter longitude" required />
+            </div>
+          </div>
+          <div class="gender-details">
+            <input type="radio" name="gender" id="dot-1" />
+            <input type="radio" name="gender" id="dot-2" />
+            <input type="radio" name="gender" id="dot-3" />
+            <span class="gender-title">Gender</span>
+            <div class="category">
+              <label for="dot-1">
+                <span class="dot one"></span>
+                <span class="gender">Male</span>
+              </label>
+              <label for="dot-2">
+                <span class="dot two"></span>
+                <span class="gender">Female</span>
+              </label>
+              <label for="dot-3">
+                <span class="dot three"></span>
+                <span class="gender">Prefer not to say</span>
+              </label>
+            </div>
+          </div>
+          <div class="button">
+            <input
+              type="submit"
+              onclick="PostLocation()"
+              value="Create new location"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
