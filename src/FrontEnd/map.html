@@ -58,8 +58,8 @@
       map.addLayer( markersLayer );
 
       ////////////populate map from main.js
-      for(var i in places2)
-        L.marker(L.latLng(places2[i].loc), {title: places2[i].name} ).addTo( markersLayer );
+      for(var i in places)
+        L.marker(L.latLng(places[i].loc), {title: places[i].name} ).addTo( markersLayer );
 
       //TODO make example using label option with pop fields
       

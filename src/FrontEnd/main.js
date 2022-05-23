@@ -1,7 +1,6 @@
 var api_url = 'http://localhost:8080/locations'
 
 var places = []; 
-
 //A estrutura não precisa ser igual a do StefanuCoudini, funciona do mesmo jeito.
 var places2 = [{"id": 0, "name":"Vittoria","loc":[-23.530531848630485,-46.63108232349241]},{"id": 0,"name":"Trapani","loc":[-23.531731921286504,-46.63051369518213]}];
 
@@ -66,7 +65,7 @@ async function PostLocation() {
   })
 
   const stored_Json = await response.json()
-  console.log(stored_Json)
+  //console.log(stored_Json)
 
   GetLocation();
   }
