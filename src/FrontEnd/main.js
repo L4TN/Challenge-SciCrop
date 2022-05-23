@@ -1,28 +1,28 @@
-const api_url = 'http://localhost:8080/locations'
-  //javascript placeholder
+var api_url = 'http://localhost:8080/locations'
 
 var places = []; 
-var places2 = [{"name":"Vittoria","loc":[36.95374,14.53318],"pop":62747},{"name":"Trapani","loc":[38.01604,12.54443],"pop":70654},{"name":"Siracusa","loc":[37.08515,15.273],"pop":123768},{"name":"Sciacca","loc":[37.50824,13.08805],"pop":41023},{"name":"Sardinia","loc":[40,9],"pop":1670219},{"name":"Rossano","loc":[39.5751,16.6349],"pop":38123},{"name":"Rende","loc":[39.33199,16.18439],"pop":35376},{"name":"Ragusa","loc":[36.92824,14.71719],"pop":73333},{"name":"Partinico","loc":[38.04395,13.12004],"pop":31852}];
 
+//A estrutura não precisa ser igual a do StefanuCoudini, funciona do mesmo jeito.
+var places2 = [{"id": 0, "name":"Vittoria","loc":[-23.530531848630485,-46.63108232349241]},{"id": 0,"name":"Trapani","loc":[-23.531731921286504,-46.63051369518213]}];
 
 async function GetLocation() {
   const response = await fetch(api_url)
+
   const stored_Json = await response.json()
   console.log(stored_Json)
-  
-  console.log(ConvertJsonToArray(stored_Json))
 
-  places = stored_Json;
+  places = ConvertJsonToArray(stored_Json)
   console.log(places);
 
-  return ConvertJsonToArray(stored_Json)
+  return places
 }
 
 // Convert the Json to an array
 function ConvertJsonToArray(stored_Json) {
   var arr = []
   for (var i in stored_Json) {
-    arr.push(json[i])
+    arr.push(stored_Json[i])
+  return arr
   }
 }
 
@@ -30,7 +30,7 @@ function ConvertJsonToArray(stored_Json) {
 // This is the function that is called in the html file to get the location
 async function PostLocation() {
 
-  // Getting the values from the form elements index.html
+  // Getting the values from the form elements index.html inputs
   var lat = document.getElementById("Lat").value;
   var lng = document.getElementById("Long").value;
   var name = document.getElementById("name").value;
@@ -55,7 +55,7 @@ async function PostLocation() {
     method: 'POST',
     headers: {}, //O erro de CORS ocorria quando preenchia o Headers com Access-Control-Allow-Origin e Content-Type-application/json
 
-    //Convertemos antes os valores para não dar erro de tipo
+    //Convertemos antes os valores de lat e lng pois estavam vindo como string, mas no console pareciam ser inteiros, para não dar erro de tipo
     body: JSON.stringify(
       {
         ID: 0,
